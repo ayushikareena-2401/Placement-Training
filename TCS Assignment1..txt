@@ -77,24 +77,6 @@ class Solution {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 TCS Coding Question Day 1 Slot 2 – Question 2
 
 
@@ -230,10 +212,6 @@ class Main {
    System.out.println("Output - "+max);
   }
 }
-
-
-
-
 
 
 
