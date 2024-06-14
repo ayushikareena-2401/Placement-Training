@@ -1,16 +1,16 @@
 //Queue Implementation in JAVA.
 
-class StaticQueue {
+class DynamicQueue {
 
    int[] arr;
    int size=-1;
    int def=10;
 
-   StaticQueue() {
+   DynamicQueue() {
      arr= new int[def];
   }
 
-  StaticQueue(int n) {
+  DynamicQueue(int n) {
     arr= new int[n];
   }
 
@@ -30,7 +30,7 @@ class StaticQueue {
       }
    }
 
-   public void end() {
+    public void end() {
       if(isEmpty()) {
           System.out.println("Queue is Empty");
       } else {
@@ -40,7 +40,13 @@ class StaticQueue {
 
   public void add(int n) {
     if(isFull()) {
-          System.out.println("Queue is full");
+        int[] temp = new int[2*arr.length];
+        for(int i=0;i<arr.length;i++) {
+          temp[i]=arr[i];
+        }
+        arr=temp;
+        arr[++size]=n;
+        System.out.println(arr[size]+" is added to the queue.");
       } else {
            arr[++size]=n;
            System.out.println(arr[size]+" is added to the queue.");
@@ -51,16 +57,15 @@ class StaticQueue {
       if(isEmpty()) {
           System.out.println("Queue is empty");
       } else {
-           int p= arr[0];
            for(int i=1;i<=size;i++) {
               arr[i-1]=arr[i];
            }
-           System.out.println(p+" is removed from the queue.");
+           System.out.println(arr[size]+" is removed from the queue.");
       }
    }
 
    public static void main(String[] a) {
-     StaticQueue q = new StaticQueue(5);
+     DynamicQueue q = new DynamicQueue(5);
      q.add(1);
      q.add(2);
      q.add(3);
